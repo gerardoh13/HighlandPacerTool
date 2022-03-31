@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+  <title>Highland Pacer Tool</title>
+  <!-- By Gerardo Huerta, 11/24/2021 -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+
+<body>
+    <br/>
+    <br/>
+    <br/>
+<div class="container">
+    <div class="card">
+        <br/>
+        <h5 class="card-title text-center">Please be sure to log in to Pacer before opening cases</h5>
+        <div class="card-body">
+            <div class="col text-center">
+                <button type="button" class="btn btn-info" onclick=" window.open(pacer, '_blank')">Log in to Pacer</button>
+                <button type="button" id="button1" class="btn btn-warning" onclick="openPacer(BKCourt)">Open BK Court Cases</button>
+                <button type="button" id="button2" class="btn btn-danger" onclick="openPacer(AppCourt)">Open Appellate Cases</button>
+                <button type="button" id="button3" class="btn btn-success" onclick="openPacer(CVCourt)">Open Civil Cases</button>
+				<button type="button" id="button4" class="btn btn-secondary" onclick="openPacer(ClosedCourt)">Open Closed Cases</button>
+            </div>
+            <div>
+                <br/>
+                <div class="row">
+                    <div class="col-3">
+                        <select class="form-control" onchange="openCase(this.value)">
+                            <option value=" ">Select BK Court Case</option>
+							<option value="https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?481201">19-34054</option>
+							<option value="https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?487925">20-03107</option>
+							<option value="https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?490003">20-03190</option>
+							<option value="https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?490879">21-03003</option>
+							<option value="https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?490880">21-03004</option>
+							<option value="https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?490881">21-03005</option>
+							<option value="https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?490882">21-03006</option>
+							<option value="https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?490883">21-03007</option>
+							<option value="https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?491338">21-03010</option>
+							<option value="https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?492175">21-03020</option>
+							<option value="https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?495463">21-03067</option>
+							<option value="https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?495829">21-03076</option>
+							<option value="https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?496252">21-03082</option>
+							<option value="https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?497320">22-03003</option>
+
+						</select> 
+							
+                    </div>
+                    <div class="col-3">
+                        <select class="form-control" onchange="openCase(this.value)">
+							<option value=" ">Select Appellate Case</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?340948">20-cv-03390</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?343903">21-cv-00261</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?345276">21-cv-00538</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?345277">21-cv-00539</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?345300">21-cv-00546</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?345309">21-cv-00550</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?348989">21-cv-01295</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?350314">21-cv-01590</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?351944">21-cv-01895</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?352316">21-cv-01974</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?353650">21-cv-02268</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?356868">21-cv-03086</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?357064">21-cv-03129</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?359031">22-cv-00335</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?360677">22-cv-00695</option>
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <select class="form-control" onchange="openCase(this.value)">
+							<option value=" ">Select Civil Case</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?346992">21-cv-00881</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?348142">21-cv-01112</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?348331">21-cv-01169</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?348337">21-cv-01173</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?348339">21-cv-01174</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?350955">21-cv-01710</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?358534">22-cv-00203</option>
+							<option value="https://ecf.ca5.uscourts.gov/n/beam/servlet/TransportRoom?servlet=CaseSummary.jsp&caseNum=21-10449&incOrigDkt=Y&incDktEntries=Y">21-10449</option>
+							<option value="https://ecf.ca5.uscourts.gov/n/beam/servlet/TransportRoom?servlet=CaseSummary.jsp&caseNum=22-10189&incOrigDkt=Y&incDktEntries=Y">22-10189</option>
+                        </select>
+                    </div>
+                    <div class="col-3">
+                        <select class="form-control" onchange="openCase(this.value)">
+							<option value=" ">Select Closed Case</option>
+							<option value="https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?487816">20-03105</option>
+							<option value="https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?488787">20-03128</option>
+							<option value="https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?490230">20-03195</option>
+							<option value="https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?490622">21-03000</option>
+							<option value="https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?494630">21-03051</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?341078">20-cv-03408</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?343257">21-cv-00132</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?346990">21-cv-00879</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?350303">21-cv-01585</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?352327">21-cv-01979</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?356869">21-cv-03088</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?356881">21-cv-03094</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?356895">21-cv-03096</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?356935">21-cv-03104</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?357188">21-cv-03160</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?357192">21-cv-03162</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?357260">21-cv-03179</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?357376">21-cv-03207</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?346678">21-cv-00842</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?346991">21-cv-00880</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?347649">21-cv-01010</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?349376">21-cv-01378</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?349377">21-cv-01379</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?358624">22-cv-00229</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?358695">22-cv-00253</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?359117">22-cv-00367</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?359122">22-cv-00369</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?359123">22-cv-00370</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+let pacer = "https://pacer.login.uscourts.gov/csologin/login.jsf"
+
+let BKCourt = [
+"https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?481201",
+"https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?487925",
+"https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?490003",
+"https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?490879",
+"https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?490880",
+"https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?490881",
+"https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?490882",
+"https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?490883",
+"https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?491338",
+"https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?492175",
+"https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?495463",
+"https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?495829",
+"https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?496252",
+"https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?497320"
+]
+
+let AppCourt = [
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?340948",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?343903",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?345276",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?345277",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?345300",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?345309",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?348989",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?350314",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?351944",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?352316",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?353650",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?356868",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?357064",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?359031",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?360677"
+]
+
+let CVCourt = [
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?346992",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?348142",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?348331",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?348337",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?348339",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?350955",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?358534",
+"https://ecf.ca5.uscourts.gov/n/beam/servlet/TransportRoom?servlet=CaseSummary.jsp&caseNum=21-10449&incOrigDkt=Y&incDktEntries=Y",
+"https://ecf.ca5.uscourts.gov/n/beam/servlet/TransportRoom?servlet=CaseSummary.jsp&caseNum=22-10189&incOrigDkt=Y&incDktEntries=Y"
+]
+
+let ClosedCourt = [
+"https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?487816",
+"https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?488787",
+"https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?490230",
+"https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?490622",
+"https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?494630",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?341078",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?343257",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?346990",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?350303",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?352327",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?356869",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?356881",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?356895",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?356935",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?357188",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?357192",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?357260",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?357376",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?346678",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?346991",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?347649",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?349376",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?349377",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?358624",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?358695",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?359117",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?359122",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?359123"
+]
+
+let openPacer = (arr) => {
+for (let i = 0; i < arr.length; i++){
+    window.open(arr[i], '_blank');
+    console.log(arr[i])
+}
+}
+let openCase = value => {
+    window.open(value), 'blank'
+    window.location.reload(true)
+}
+</script>
+</body>
+</html>
