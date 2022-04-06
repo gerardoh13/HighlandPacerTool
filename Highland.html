@@ -3,7 +3,7 @@
 <head>
   <title>Highland Pacer Tool</title>
   <!-- By Gerardo Huerta, 11/24/2021 -->
-  <!-- Last edited 03/31/2022 -->
+  <!-- Last edited 04/06/2022 by Gerardo Huerta -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
@@ -26,14 +26,13 @@
                 <button type="button" id="button3" class="btn btn-success" onclick="openPacer(CVCourt)">Open Civil Cases</button>
 				<button type="button" id="button4" class="btn btn-secondary" onclick="openPacer(ClosedCourt)">Open Closed Cases</button>
             </div>
-            <div>
+			<div>
                 <br/>
                 <div class="row">
                     <div class="col-3">
                         <select class="form-control" onchange="openCase(this.value)">
                             <option value=" ">Select BK Court Case</option>
 							<option value="https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?481201">19-34054</option>
-							<option value="https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?487925">20-03107</option>
 							<option value="https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?490003">20-03190</option>
 							<option value="https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?490879">21-03003</option>
 							<option value="https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?490880">21-03004</option>
@@ -80,6 +79,7 @@
 							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?348339">21-cv-01174</option>
 							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?350955">21-cv-01710</option>
 							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?358534">22-cv-00203</option>
+							<option value="https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?361247">22-cv-00789</option>
 							<option value="https://ecf.ca5.uscourts.gov/n/beam/servlet/TransportRoom?servlet=CaseSummary.jsp&caseNum=21-10449&incOrigDkt=Y&incDktEntries=Y">21-10449</option>
 							<option value="https://ecf.ca5.uscourts.gov/n/beam/servlet/TransportRoom?servlet=CaseSummary.jsp&caseNum=22-10189&incOrigDkt=Y&incDktEntries=Y">22-10189</option>
                         </select>
@@ -88,6 +88,7 @@
                         <select class="form-control" onchange="openCase(this.value)">
 							<option value=" ">Select Closed Case</option>
 							<option value="https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?487816">20-03105</option>
+							<option value="https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?487925">20-03107</option>
 							<option value="https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?488787">20-03128</option>
 							<option value="https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?490230">20-03195</option>
 							<option value="https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?490622">21-03000</option>
@@ -129,7 +130,6 @@ let pacer = "https://pacer.login.uscourts.gov/csologin/login.jsf"
 
 let BKCourt = [
 "https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?481201",
-"https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?487925",
 "https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?490003",
 "https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?490879",
 "https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?490880",
@@ -170,12 +170,14 @@ let CVCourt = [
 "https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?348339",
 "https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?350955",
 "https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?358534",
+"https://ecf.txnd.uscourts.gov/cgi-bin/DktRpt.pl?361247",
 "https://ecf.ca5.uscourts.gov/n/beam/servlet/TransportRoom?servlet=CaseSummary.jsp&caseNum=21-10449&incOrigDkt=Y&incDktEntries=Y",
 "https://ecf.ca5.uscourts.gov/n/beam/servlet/TransportRoom?servlet=CaseSummary.jsp&caseNum=22-10189&incOrigDkt=Y&incDktEntries=Y"
 ]
 
 let ClosedCourt = [
 "https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?487816",
+"https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?487925",
 "https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?488787",
 "https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?490230",
 "https://ecf.txnb.uscourts.gov/cgi-bin/DktRpt.pl?490622",
